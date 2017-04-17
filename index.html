@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html ng-app="NewsCorpTestApp">
+
+<head>
+      
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../byorns/byorns.css" />
+  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+      
+</head>
+
+<body class="page-background" ng-controller="PhotoController as photoController">
+
+    
+     <div class="container-fluid">
+    
+     <!-- Header -->
+     <div class="row header">    
+       <div class="col-md-12 col-lg-12">
+           <h1 class="logo">Byorn's</h1> <h3> <a href="http://www.byorns.com"> Code samples and Demo's </a> </h3>
+       </div> 
+     </div>
+         
+         
+     <!--Content -->    
+     <div class="row content">
+    
+         
+    <!-- Main Content -->
+     <div class="col-md-9 col-lg-9">
+             
+               
+               
+     <div  class="container-fluid">
+    
+   
+        <div class="row">
+            <h2>Angular 1 - Search Flickr API and open image in a light box</h2>
+        </div>
+        
+        
+        <div class="row">
+            <div class="col-md-12">
+               <input id="searchInput" type="text" ng-model="photoController.searchText" placeholder="Type here to search" ng-keyup="photoController.search(photoController.searchText)" />
+            </div>
+        </div>
+      
+
+     
+
+    <div class="container-fluid subcontainer">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 ng-show="photoController.showSearching">
+                       Searching ...   {{photoController.searchText}}
+            </h3>
+             <h5 ng-show="photoController.noResultsFound">
+                    Sorry about that! But I couldn't find any results for the search criteria. Try and search again.
+            </h5>  
+          </div>
+        </div>
+
+        <!-- During each search only 20 Images are loaded -->
+        <div class="row">
+          <div class="col-md-3" ng-repeat="i in photoController.images.items | limitTo : 4">
+                <div class="photoCard">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <a ng-href="javascript:void(0)"> <img class="photo-image" src="{{i.media.m}}" ng-click="photoController.openImage(i)" /></a>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 align-self-start">
+                            <div class="photo-text-box">
+                            <div>Author:{{i.author}}</div> 
+                            <div class="tags">Tags:{{i.tags | limitTo: 200 }} </div> 
+                        </div>
+                        </div>
+                    </div>
+                </div> 
+           </div>
+        </div>
+
+       <div class="row">
+          <div class="col-md-3" ng-repeat="i in photoController.images.items | limitTo : 4 : 4">
+                   <div class="photoCard">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                             <a ng-href="javascript:void(0)"> <img class="photo-image" src="{{i.media.m}}" ng-click="photoController.openImage(i)" /></a>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 align-self-start">
+                            <div class="photo-text-box">
+                            <div>Author:{{i.author}}</div> 
+                            <div class="tags">Tags:{{i.tags | limitTo: 200 }} </div> 
+                        </div>
+                        </div>
+                    </div>
+                </div> 
+           </div>
+        </div>
+        
+            <div class="row">
+          <div class="col-md-3" ng-repeat="i in photoController.images.items | limitTo : 4 : 8">
+                  <div class="photoCard">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <a ng-href="javascript:void(0)"> <img class="photo-image" src="{{i.media.m}}" ng-click="photoController.openImage(i)" /></a>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 align-self-start">
+                            <div class="photo-text-box">
+                            <div>Author:{{i.author}}</div> 
+                            <div class="tags">Tags:{{i.tags | limitTo: 200 }} </div> 
+                        </div>
+                        </div>
+                    </div>
+                </div> 
+           </div>
+        </div>
+        
+            <div class="row">
+          <div class="col-md-3" ng-repeat="i in photoController.images.items | limitTo : 4 : 12">
+                <div class="photoCard">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                             <a ng-href="javascript:void(0)"> <img class="photo-image" src="{{i.media.m}}" ng-click="photoController.openImage(i)" /></a>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 align-self-start">
+                            <div class="photo-text-box">
+                            <div>Author:{{i.author}}</div> 
+                            <div class="tags">Tags:{{i.tags | limitTo: 200 }} </div> 
+                        </div>
+                        </div>
+                    </div>
+                </div> 
+           </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-3" ng-repeat="i in photoController.images.items | limitTo : 4 : 16">
+               <div class="photoCard">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                           <a ng-href="javascript:void(0)"> <img class="photo-image" src="{{i.media.m}}" ng-click="photoController.openImage(i)" /></a>
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 align-self-start">
+                            <div class="photo-text-box">
+                            <div>Author:{{i.author}}</div> 
+                            <div class="tags">Tags:{{i.tags | limitTo: 200 }} </div> 
+                        </div>
+                        </div>
+                    </div>
+                </div> 
+           </div>
+        </div>
+           </div>
+               </div>
+         </div>
+           
+           <!-- My Info -->
+           <div class="col-md-3 col-lg-3 myinfo text-center">
+              
+                    &nbsp;
+                
+             
+          </div>
+         </div>    
+                
+
+        
+    
+           
+ 
+    
+
+ 
+
+
+      
+    </div> 
+    
+    <!-- Lightbox -->  
+    <div id="light" class="white_content">
+        
+              <div class="row">
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                     &nbsp;
+                  </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <p class="text-center">  {{photoController.selectedTitle}} </p>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                       &nbsp;
+                  </div>
+              </div>
+        
+              <div class="row"> 
+                 <div class="col-xs-12 col-sm-12 col-md-12">
+                     <img id="selectedPhoto" src="{{photoController.selectedImage}}"/>
+                  </div> 
+              </div>
+        
+        <div class="row"> <br/> </div>
+
+         <div class="row"> 
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                     &nbsp;
+                  </div>
+               <div class="col-xs-6 col-sm-6 col-md-6">
+                   <p class="text-center">   Click   <a ng-href={{photoController.selectedLink}}>here</a> to see Flickr image  </p>
+                </div>
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                     &nbsp;
+                  </div>
+        </div>
+        <div class="row"> 
+              <div class="col-xs-4 col-sm-4 col-md-4">
+                     &nbsp;
+                  </div>
+               <div class="col-xs-4 col-sm-4 col-md-4">
+                 <p class="text-center">      <button type="button" class="btn btn-success btn-lg" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</button>
+                   </p>
+              </div>
+             <div class="col-xs-4 col-sm-4 col-md-4">
+                     &nbsp;
+             </div>
+        </div>
+           
+    </div>
+	<div id="fade" class="black_overlay"></div>
+ 
+    
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+   
+  <script src="app/app.js"></script>
+  <script src="app/app-controller.js"></script>
+  <script src="app/app-service.js"></script>
+</body>
+
+</html>
